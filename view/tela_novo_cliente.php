@@ -1,3 +1,8 @@
+<?php
+/**
+ * @author Edson
+ */
+?>
 <form method="POST" action="salvar_cliente.php" id="form">
 <div class="panel panel-default">
   <div class="panel-heading"><h3>Novo Cliente</h3></div>

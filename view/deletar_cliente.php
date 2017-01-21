@@ -3,7 +3,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteControlle
 
 $id = $_GET['id'];
 $ctrl = new ClienteController();
-if($ctrl->deletar($id)){
+if ($ctrl->deletar($id)) {
     header("location: index.php");
 }
-?>

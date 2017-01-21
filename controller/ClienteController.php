@@ -1,19 +1,31 @@
 <?php
-require "../data/DatabaseConnection.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/pizz/data/DatabaseConnection.php";
 require "../model/Cliente.php";
 
+/**
+ * Class ClienteController
+ */
 class ClienteController
 {
     public $bd;
 
-    public function __construct(){
+    /**
+     *
+     */
+    public function __construct()
+    {
         $this->bd = new DatabaseConnection();
     }
 
-    public function Inserir(Cliente $cliente){
-        try{
-            $sqlCli = "INSERT INTO clientes (id, nome, telefone)
-                VALUES ('', '{$cliente->getNome()}' , '{$cliente->getTelefone()}')";
+    /**
+     * @param Cliente $cliente
+     * @return bool|string
+     */
+    public function Inserir(Cliente $cliente)
+    {
+        try {
+            $sqlCli = "INSERT INTO `clientes` (`id`, `nome`, `telefone`)
+                VALUES (null, '{$cliente->getNome()}' , '{$cliente->getTelefone()}')";
             $id_cliente = $this->bd->inserir($sqlCli);
 
             $sqlEnd = "INSERT INTO enderecos 
@@ -29,12 +41,18 @@ class ClienteController
                 )";
             $this->bd->inserir($sqlEnd);
             return true;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
-    public function Atualizar(Cliente $cliente){
-        try{
+
+    /**
+     * @param Cliente $cliente
+     * @return bool|string
+     */
+    public function Atualizar(Cliente $cliente)
+    {
+        try {
             $sqlCli = "UPDATE clientes SET clientes.nome='{$cliente->getNome()}', clientes.telefone='{$cliente->getTelefone()}' WHERE clientes.id = '{$cliente->getId()}'";
             $this->bd->atualizar($sqlCli);
             $sqlEnd = "UPDATE enderecos SET 
@@ -48,11 +66,13 @@ class ClienteController
                 WHERE enderecos.id = {$cliente->getEndereco()->getId()}";
             $this->bd->atualizar($sqlEnd);
             return true;
-        }catch(Exception $e){
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
-    public function ListarTodos(){
+
+    public function ListarTodos()
+    {
         $cliente = $this->bd->listar("
             SELECT clientes.id, clientes.nome, clientes.telefone, 
             enderecos.id as id_end, enderecos.rua, enderecos.bairro, 
@@ -64,7 +84,13 @@ class ClienteController
             LIMIT 10");
         return $cliente;
     }
-    public function Busca($id){
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function Busca($id)
+    {
         $cliente = $this->bd->listar("
             SELECT clientes.id, clientes.nome, clientes.telefone, 
             enderecos.id as id_end, enderecos.rua, enderecos.bairro, 
@@ -77,7 +103,13 @@ class ClienteController
             LIMIT 10");
         return $cliente;
     }
-    public function BuscaTel($tel){
+
+    /**
+     * @param $tel
+     * @return mixed
+     */
+    public function BuscaTel($tel)
+    {
         $cliente = $this->bd->listar("
             SELECT clientes.id, clientes.nome, clientes.telefone, 
             enderecos.id as id_end, enderecos.rua, enderecos.bairro, 
@@ -90,21 +122,21 @@ class ClienteController
             LIMIT 10");
         return $cliente;
     }
-    public function deletar($id){
-        try{
-            $sql1 = "DELETE FROM `enderecos` WHERE `cliente_id` = $id";
-            $sql2 = "DELETE FROM `clientes` WHERE `id` = $id";
+
+    /**
+     * @param $id
+     * @return bool|string
+     */
+    public function deletar($id)
+    {
+        try {
+            $sql1 = "DELETE FROM enderecos WHERE cliente_id = $id";
+            $sql2 = "DELETE FROM clientes WHERE id = $id";
             $this->bd->deletar($sql1);
             $this->bd->deletar($sql2);
             return true;
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
 }
-
-//$b = new ClienteController();
-//echo "TEEE";
-//$var = $b->ListarTodos();
-//var_dump($var);
-?>

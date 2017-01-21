@@ -5,7 +5,7 @@ $(document).ready(function(){
     var directionsService = new google.maps.DirectionsService();
 
     function initialize() {
-        directionsDisplay = new google.maps.DirectionsRenderer();
+        var directionsDisplay = new google.maps.DirectionsRenderer();
         var pizzTop = new google.maps.LatLng(-20.452215, -54.593438);
         var latlng = new google.maps.LatLng($("#lat").val(), $("#lon").val());
         var mapOptions = {
@@ -18,12 +18,12 @@ $(document).ready(function(){
         destino = new google.maps.Marker({
             title: "Cliente",
             map: map,
-            draggable: true,
+            draggable: true
         });
         origem = new google.maps.Marker({
             title: "PizzTOP",
             map: map,
-            draggable: true,
+            draggable: true
         });
         // seta os pontos no mapa
         //destino.setPosition(latlng);
@@ -46,7 +46,7 @@ $(document).ready(function(){
         // calculando distancia
         var service = new google.maps.DistanceMatrixService();
         //executar o DistanceMatrixService
-        WALKING = {
+        var WALKING = {
             origins: [pizzTop],
             destinations: [latlng],
             travelMode: google.maps.TravelMode.DRIVING,
@@ -60,7 +60,7 @@ $(document).ready(function(){
         var dist = response.rows[0].elements[0].distance.text;
         $('#distancia').html(dist);
         var x = response.rows[0].elements[0].distance.value;
-        console.log(x);
+
         if((x >= 0) && (x <= 5000)){
             $('#frete').html("R$ 2,00");
         }
@@ -78,5 +78,4 @@ $(document).ready(function(){
         }
     }
     google.maps.event.addDomListener(window, 'load', initialize);
-
 });

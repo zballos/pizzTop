@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Class Endereco
+ */
 class Endereco
 {
     private $id;
@@ -69,4 +73,3 @@ class Endereco
         $this->cliente_id = $cliente_id;
     }
 }
-?>

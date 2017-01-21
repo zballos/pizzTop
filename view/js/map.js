@@ -16,13 +16,13 @@ $(document).ready(function(){
         var latlng = new google.maps.LatLng(-20.452215, -54.593438);
         var mapOptions = {
             center: latlng,
-            zoom: 16,
+            zoom: 16
         };
         map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
         marker = new google.maps.Marker({
             title: "Pizzaria PizzTOP",
             map: map,
-            draggable: true,
+            draggable: true
         });
  
         marker.setPosition(latlng);

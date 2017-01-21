@@ -1,8 +1,7 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
-    $clientes = new ClienteController();//::ListarTodos();
+    $clientes = new ClienteController();
     $dados = $clientes->ListarTodos();
-    //var_dump($clientes->ListarTodos());
 ?>
 
 <div class="table-responsive">
@@ -20,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach($dados as $cliente) : ?>
+        <?php foreach ($dados as $cliente) : ?>
             <tr>
                 <td><?=$cliente->id; ?></td>
                 <td><?=$cliente->nome;?></td>
