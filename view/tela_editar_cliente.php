@@ -2,7 +2,7 @@
     require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
     $clientes = new ClienteController();
     $id = $_GET['id'];
-    $dados = $clientes->Busca($id);
+    $dados = $clientes->busca($id);
 ?>
 
 <form method="POST" action="salvar_cliente.php">

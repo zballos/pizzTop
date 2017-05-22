@@ -12,11 +12,9 @@ class Cliente
     private $telefone;
     private $endereco;
 
-    /**
-     *
-     */
     public function __construct()
     {
+        //
     }
 
     // gets and setters
@@ -59,24 +57,33 @@ class Cliente
     {
         $this->endereco = $endereco;
     }
-    
+
+    /**
+     * Format fields to save
+     *
+     * @param $post
+     * @return Cliente $cliente
+     */
     public function setAllFromPost($post)
     {
-        $end = new Endereco();
-        $this->setNome($post['nome']);
-        $this->setTelefone($post['tel']);
+        $cliente = new Cliente;
+        $endereco = new Endereco();
+
+        $cliente->setNome($post['nome']);
+        $cliente->setTelefone($post['tel']);
         if (!empty($post['id']) && !empty($post['end_id'])) {
-            $this->setId($post['id']);
-            $end->setId($post['end_id']);
-            $end->setClienteId($post['id']);
+            $cliente->setId($post['id']);
+            $endereco->setId($post['end_id']);
+            $endereco->setClienteId($post['id']);
         }
-        $end->setRua($post['rua']);
-        $end->setNumero($post['num']);
-        $end->setBairro($post['bairro']);
-        $end->setCidade($post['cidade']);
-        $end->setLatitude($post['latitude']);
-        $end->setLongitude($post['longitude']);
-        $this->setEndereco($end);
-        
+        $endereco->setRua($post['rua']);
+        $endereco->setNumero($post['num']);
+        $endereco->setBairro($post['bairro']);
+        $endereco->setCidade($post['cidade']);
+        $endereco->setLatitude($post['latitude']);
+        $endereco->setLongitude($post['longitude']);
+        $cliente->setEndereco($endereco);
+
+        return $cliente;
     }
 }

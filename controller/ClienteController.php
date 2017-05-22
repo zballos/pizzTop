@@ -7,7 +7,7 @@ require "../model/Cliente.php";
  */
 class ClienteController
 {
-    public $bd;
+    private $bd;
 
     /**
      *
@@ -21,10 +21,10 @@ class ClienteController
      * @param Cliente $cliente
      * @return bool|string
      */
-    public function Inserir(Cliente $cliente)
+    public function inserir(Cliente $cliente)
     {
         try {
-            $sqlCli = "INSERT INTO `clientes` (`id`, `nome`, `telefone`)
+            $sqlCli = "INSERT INTO clientes (id, nome, telefone)
                 VALUES (null, '{$cliente->getNome()}' , '{$cliente->getTelefone()}')";
             $id_cliente = $this->bd->inserir($sqlCli);
 
@@ -50,7 +50,7 @@ class ClienteController
      * @param Cliente $cliente
      * @return bool|string
      */
-    public function Atualizar(Cliente $cliente)
+    public function atualizar(Cliente $cliente)
     {
         try {
             $sqlCli = "UPDATE clientes SET clientes.nome='{$cliente->getNome()}', clientes.telefone='{$cliente->getTelefone()}' WHERE clientes.id = '{$cliente->getId()}'";
@@ -71,7 +71,7 @@ class ClienteController
         }
     }
 
-    public function ListarTodos()
+    public function listarTodos()
     {
         $cliente = $this->bd->listar("
             SELECT clientes.id, clientes.nome, clientes.telefone, 
@@ -89,7 +89,7 @@ class ClienteController
      * @param $id
      * @return mixed
      */
-    public function Busca($id)
+    public function busca($id)
     {
         $cliente = $this->bd->listar("
             SELECT clientes.id, clientes.nome, clientes.telefone, 
@@ -108,7 +108,7 @@ class ClienteController
      * @param $tel
      * @return mixed
      */
-    public function BuscaTel($tel)
+    public function buscaTel($tel)
     {
         $cliente = $this->bd->listar("
             SELECT clientes.id, clientes.nome, clientes.telefone, 

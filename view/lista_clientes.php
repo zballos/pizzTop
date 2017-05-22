@@ -1,11 +1,11 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
     $clientes = new ClienteController();
-    $dados = $clientes->ListarTodos();
+    $dados = $clientes->listarTodos();
 ?>
 
 <div class="table-responsive">
-    <table class="table table-striped">
+    <table class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>#</th>
@@ -15,7 +15,7 @@
                 <th>Número</th>
                 <th>Bairro</th>
                 <th>Cidade</th>
-                <th></th>
+                <th width="120px"></th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +28,7 @@
                 <td><?=$cliente->numero;?></td>
                 <td><?=$cliente->bairro;?></td>
                 <td><?=$cliente->cidade;?></td>
-                <td class="col-sm-2">
+                <td width="120px">
                     <a href="index.php?page=editar&id=<?=$cliente->id;?>">Editar</a>
                     <a href="index.php?page=excluir&id=<?=$cliente->id;?>">Excluir</a>
                 </td>

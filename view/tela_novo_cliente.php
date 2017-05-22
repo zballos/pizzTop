@@ -32,7 +32,7 @@
             <input type="text" class="form-control" id="bairro" name="bairro" required>
         </div>
         <div class="col-sm-3">
-            <label for="cidade">cidade</label>
+            <label for="cidade">Cidade</label>
             <input type="text" class="form-control" id="cidade" name="cidade" required>
         </div>
     </div>        

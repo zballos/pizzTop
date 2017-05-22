@@ -13,7 +13,11 @@
         #map-canvas { height: 100%; margin: 0; padding: 0;}
     </style>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"
+        async=""
+        defer="defer"
+        type="text/javascript"></script>
   </head>
   <body>
     <div class="container">
