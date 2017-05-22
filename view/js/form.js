@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function ($) {
     $('.num').mask('000000');
     var SPMaskBehavior = function (val) {
             return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     $('.tel').mask(SPMaskBehavior, spOptions);
 
-    $('#cidade').blur(function () {
+    $('#cidade, #bairro, #rua, #num').change(function () {
         var end = $('#rua').val() + ', ' + $('#num').val() + "-" + $('#bairro').val() + "," + $('#cidade').val();
         carregarLatLon(end);
     });
