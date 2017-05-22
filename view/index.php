@@ -12,8 +12,14 @@
     <style type="text/css">
         #map-canvas { height: 100%; margin: 0; padding: 0;}
     </style>
+    <!-- TODO:  YOUR_API_KEY -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhPAo6JcsMALvsaGuMRlU8uW2LLBB6Z6g"
+        async=""
+        defer="defer"
+        type="text/javascript"></script>
   </head>
   <body>
     <div class="container">

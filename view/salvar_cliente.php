@@ -7,12 +7,12 @@ $data = $cliente->setAllFromPost($_POST);
 
 if (empty($data->getId())) {
     $ctrl = new ClienteController();
-    if ($ctrl->Inserir($data)) {
+    if ($ctrl->inserir($data)) {
         header("location: index.php");
     }
 } else {
     $ctrl = new ClienteController();
-    if ($ctrl->Atualizar($data)) {
+    if ($ctrl->atualizar($data)) {
         header("location: index.php");
     }
 }

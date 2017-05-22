@@ -4,7 +4,7 @@ if (!empty($tel)) {
     require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
 
     $ctrl = new ClienteController();
-    $retorno = $ctrl->BuscaTel($tel);
+    $retorno = $ctrl->buscaTel($tel);
     $retorno = $retorno[0];
 }
 ?>
