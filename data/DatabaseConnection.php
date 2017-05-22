@@ -32,7 +32,7 @@ class DatabaseConnection
             self::$pdo = new PDO(
                 "mysql:host=localhost;dbname=pizz",
                 'root',
-                '1562',
+                '1234',
                 [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"]
             );
             self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -76,12 +76,9 @@ class DatabaseConnection
      */
     public function inserir($sql, $params = null)
     {
-        var_dump($sql);
-        var_dump($params);
         $ins = $this->conectar()->prepare($sql);
-        var_dump($ins->errorInfo());
         $ins->execute($params);
-        $retorno = self::$pdo->lastInsertId();// or die(print_r($ins->errorInfo(), true));
+        $retorno = self::$pdo->lastInsertId() or die(print_r($ins->errorInfo(), true));
         return $retorno;
     }
 
