@@ -1,5 +1,7 @@
 <?php
 
+namespace model;
+
 /**
  * Class Endereco
  */

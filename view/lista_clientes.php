@@ -1,5 +1,8 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
+
+use controller\ClienteController;
+
+    //require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
     $clientes = new ClienteController();
     $dados = $clientes->listarTodos();
 ?>

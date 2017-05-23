@@ -1,4 +1,9 @@
 <?php
+namespace data;
+
+use Debug;
+use \PDO;
+use \PDOException;
 
 /**
  * Class DatabaseConnection
@@ -13,6 +18,7 @@ class DatabaseConnection
      */
     public function __construct()
     {
+        phpinfo();
         // construct
     }
 
@@ -74,11 +80,25 @@ class DatabaseConnection
      * @param null $params
      * @return mixed
      */
-    public function inserir($sql, $params = null)
+    public function inserir($sql, $params)
     {
         $ins = $this->conectar()->prepare($sql);
-        $ins->execute($params);
+        //$debug = new Debug();//Debug::show($params);
+        //$debug->show($sql);
+        //$debug->show($params);
+        echo "op";
+        var_dump($ins);
+        var_dump($ins->errorInfo());
+        foreach ($params as $key => $value) {
+            var_dump($key);
+            var_dump($value);
+            $ins->bindValue($key, $value);
+        }
+
+        $inserted = $ins->execute();
+        var_dump($inserted);
         $retorno = self::$pdo->lastInsertId() or die(print_r($ins->errorInfo(), true));
+        var_dump($retorno);die;
         return $retorno;
     }
 

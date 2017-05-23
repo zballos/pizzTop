@@ -1,5 +1,5 @@
 <?php
-$get = $_GET['page'];
+$get = !empty($_GET['page']) ? $_GET['page'] : null;
 $label = "";
 $url = "";
 if ($get == null) {

@@ -1,6 +1,8 @@
 <?php
 
-require_once "Endereco.php";
+namespace model;
+
+use model\Endereco;
 
 /**
  * Class Cliente

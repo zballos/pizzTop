@@ -1,9 +1,15 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . "/pizz/data/DatabaseConnection.php";
-require "../model/Cliente.php";
+namespace controller;
+
+use data\DatabaseConnection;
+use model\Cliente;
+
+//require $_SERVER['DOCUMENT_ROOT'] . "/pizz/data/DatabaseConnection.php";
+//require "../model/Cliente.php";
 
 /**
  * Class ClienteController
+ * @property Cliente $cliente
  */
 class ClienteController
 {
@@ -24,24 +30,30 @@ class ClienteController
     public function inserir(Cliente $cliente)
     {
         try {
-            $sqlCli = "INSERT INTO clientes (id, nome, telefone)
-                VALUES (null, '{$cliente->getNome()}' , '{$cliente->getTelefone()}')";
-            $id_cliente = $this->bd->inserir($sqlCli);
+            $sqlClient = 'INSERT INTO clientes (id, nome, telefone) VALUES (null, :nome , :telefone)';
+            $paramsClient = [
+                ':nome' => $cliente->getNome(),
+                ':telefone' => $cliente->getTelefone()
+            ];
+            var_dump($paramsClient);
+            $id_cliente = $this->bd->inserir($sqlClient, $paramsClient);
 
             $sqlEnd = "INSERT INTO enderecos 
                 (id, rua, bairro, numero, cidade, latitude, longitude, cliente_id) 
-                VALUES ('', 
-                '{$cliente->getEndereco()->getRua()}',
-                '{$cliente->getEndereco()->getBairro()}',
-                '{$cliente->getEndereco()->getNumero()}',
-                '{$cliente->getEndereco()->getCidade()}', 
-                '{$cliente->getEndereco()->getLatitude()}',
-                '{$cliente->getEndereco()->getLongitude()}', 
-                $id_cliente
-                )";
-            $this->bd->inserir($sqlEnd);
+                VALUES ('', :rua, :bairro, :numero, :cidade, :latitude, :longitude, :cliente_id)";
+            $paramsEnd = [
+                ':rua' => $cliente->getEndereco()->getRua(),
+                ':bairro' => $cliente->getEndereco()->getBairro(),
+                ':cidade' => $cliente->getEndereco()->getCidade(),
+                ':latitude' => $cliente->getEndereco()->getLatitude(),
+                ':longitude' => $cliente->getEndereco()->getLongitude(),
+                ':cliente_id' => $id_cliente,
+            ];
+            $this->bd->inserir($sqlEnd, $paramsEnd);
             return true;
         } catch (Exception $e) {
+            var_dump($e->getMessage());
+
             return $e->getMessage();
         }
     }
