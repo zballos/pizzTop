@@ -9,6 +9,11 @@ This system work with Google Maps API, JavaScript e PHP.
 [] Migrate to PHP7;
 [] Namespaces and uses.
 
+### Documentation
+- [PDO](http://php.net/manual/en/book.pdo.php)
+- [Namespaces](http://php.net/manual/pt_BR/language.namespaces.php)
+- [Classes and Objects](http://php.net/manual/pt_BR/language.oop5.php)
+
 
 ### References
 - [Solved Google Maps API Error](https://www.latecnosfera.com/2016/06/google-maps-api-error-missing-keymap-error-solved.html)
