@@ -12,3 +12,4 @@ This system work with Google Maps API, JavaScript e PHP.
 
 ### References
 - [Solved Google Maps API Error](https://www.latecnosfera.com/2016/06/google-maps-api-error-missing-keymap-error-solved.html)
+- [Explanation PSR-4](http://www.php-fig.org/psr/psr-4/)
