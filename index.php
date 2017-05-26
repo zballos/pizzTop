@@ -23,7 +23,7 @@
     </style>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhPAo6JcsMALvsaGuMRlU8uW2LLBB6Z6g"
+        src="https://maps.googleapis.com/maps/api/js?key=API_KEY"
         async=""
         defer="defer"
         type="text/javascript"></script>
