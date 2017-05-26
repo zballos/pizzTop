@@ -4,9 +4,6 @@ namespace controller;
 use data\DatabaseConnection;
 use model\Cliente;
 
-//require $_SERVER['DOCUMENT_ROOT'] . "/pizz/data/DatabaseConnection.php";
-//require "../model/Cliente.php";
-
 /**
  * Class ClienteController
  * @property Cliente $cliente

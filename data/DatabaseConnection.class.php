@@ -18,7 +18,7 @@ class DatabaseConnection
      */
     public function __construct()
     {
-        phpinfo();
+        //phpinfo();
         // construct
     }
 
