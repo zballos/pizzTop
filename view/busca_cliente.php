@@ -1,7 +1,7 @@
 <?php
 $tel = $_POST['telefone'];
 if (!empty($tel)) {
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.class.php";
 
     $ctrl = new ClienteController();
     $retorno = $ctrl->buscaTel($tel);

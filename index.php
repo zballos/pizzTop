@@ -17,12 +17,13 @@
     <!-- Bootstrap -->
     <link href="view/css/bootstrap.min.css" rel="stylesheet">
     <script src="view/js/jquery-2.1.3.min.js"></script>
+    <script src="view/js/jquery.mask.js"></script>
     <style type="text/css">
         #map-canvas { height: 100%; margin: 0; padding: 0;}
     </style>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhPAo6JcsMALvsaGuMRlU8uW2LLBB6Z6g"
         async=""
         defer="defer"
         type="text/javascript"></script>
@@ -36,6 +37,6 @@
     ?>
     <?php require_once "view/container.php"; ?>
     </div>
-<script src="view/js/jquery.mask.js"></script>
+
 </body>
 </html>

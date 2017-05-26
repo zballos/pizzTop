@@ -2,9 +2,8 @@
 
 use controller\ClienteController;
 
-    //require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
-    $clientes = new ClienteController();
-    $dados = $clientes->listarTodos();
+$clientes = new ClienteController();
+$dados = $clientes->listarTodos();
 ?>
 
 <div class="table-responsive">

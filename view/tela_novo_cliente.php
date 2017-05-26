@@ -3,7 +3,7 @@
  * @author Edson
  */
 ?>
-<form method="POST" action="salvar_cliente.php" id="form">
+<form method="POST" action="/view/salvar_cliente.php" id="form">
 <div class="panel panel-default">
   <div class="panel-heading"><h3>Novo Cliente</h3></div>
     <div class="panel-body">
@@ -43,4 +43,3 @@
 </div>
 </form>
 <script src="js/form.js"></script>
-<script src="js/jquery.mask.js"></script>

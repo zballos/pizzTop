@@ -1,5 +1,5 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.class.php";
     $clientes = new ClienteController();
     $id = $_GET['id'];
     $dados = $clientes->busca($id);

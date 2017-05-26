@@ -1,10 +1,13 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/pizz/' . "controller/ClienteController.php";
+use controller\ClienteController;
+use model\Cliente;
+use data\Debug;
 
 $cliente = new Cliente();
-
 $data = $cliente->setAllFromPost($_POST);
-var_dump($_POST);
+
+Debug::show($_POST);
+
 if (empty($data->getId())) {
     $ctrl = new ClienteController();
     if ($ctrl->inserir($data)) {
